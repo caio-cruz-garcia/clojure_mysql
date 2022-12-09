@@ -21,4 +21,7 @@
 (defn stop []
   (http/stop (server)))
 
+(start)
+
+(stop)
 
