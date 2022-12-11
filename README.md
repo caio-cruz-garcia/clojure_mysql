@@ -1,44 +1,62 @@
-# clojure_mysql
+# API Clojure - Carteira de Investimentos
 
-FIXME: description
+## Desenvolvedores
+Nome: Caio Cruz Alfonso Garcia          RA: 15.01580-7
+Nome: Henrique Silva Godoy              RA: 16.01147-3
+Nome: Joao Pedro Azevedo 	            RA: 18.02277-4
+Nome: Hector Guerrini 		            RA: 15.01310-3
 
-## Installation
+## Resumo
+O projeto consiste em criar uma API para inserir, selecionar, atualizar e deletar informações de uma determinada carteira de investimentos. As carteiras de investimentos serão criadas com base no sistema de ARCA (Ativos Nacionais, *Real State*,  Caixa e Ativos Internacionais)
 
-Download from http://example.com/FIXME.
+## Desenvolvimento
+### Tecnologias
 
-## Usage
+- mySQL DB para armazenamento das informações
+- Clojure como linguagem principal
 
-FIXME: explanation
+### Informações lógicas do projeto
+Serão consideradas essas as entidades principais.
 
-    $ java -jar clojure_mysql-0.1.0-standalone.jar [args]
+**Pessoas:**
+- id: int
+- FirstName: string
+- LastName: string
+- international: string
+- Address: string
+- City: string
 
-## Options
+## Rodando o Projeto
+Precisa de um MySQL e do lein instalados.
 
-FIXME: listing of options this app accepts.
+MYSQL:
 
-## Examples
+CREATE DATABASE ECM969ProgramacaoFuncional;
 
-...
+use ECM969ProgramacaoFuncional;
 
-### Bugs
+CREATE TABLE persons (
+    id serial PRIMARY KEY,
+    FirstName VARCHAR(250) NOT NULL,
+    LastName VARCHAR(250) NOT NULL,
+    Address VARCHAR(250) NOT NULL,
+    City VARCHAR(250) NOT NULL
+);
 
-...
+INSERT INTO persons (LastName, FirstName, Address, City)
+VALUES ('Exemplo', 'Exemplo', 'Exemplo ','Exemplo')
 
-### Any Other Sections
-### That You Think
-### Might be Useful
+SELECT * FROM persons;
 
-## License
+lein: 
 
-Copyright © 2022 FIXME
+lein run
 
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
+cmd ou qualquer ferramenta de api: 
 
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
+curl -i http://localhost:9980/queryAll
+curl -i http://localhost:9980/ola
+
+## Testes com o projeto
+
+Dentro do projeto, no caminho `./test/rest/` existem diversos arquivos .rest que foram criados com o intuito de testar as chamadas HTTP. 
