@@ -1,35 +1,39 @@
-# API Clojure - Carteira de Investimentos
+# API Clojure - Buscando Pessoas da Base
 
 ## Desenvolvedores
-Nome: Caio Cruz Alfonso Garcia          RA: 15.01580-7
-Nome: Henrique Silva Godoy              RA: 16.01147-3
-Nome: Joao Pedro Azevedo 	            RA: 18.02277-4
-Nome: Hector Guerrini 		            RA: 15.01310-3
+- Nome: Caio Cruz Alfonso Garcia            RA: 15.01580-7
+- Nome: Henrique Silva Godoy                RA: 16.01147-3
+- Nome: Joao Pedro Azevedo 	                RA: 18.02277-4
+- Nome: Hector Guerrini 		            RA: 15.01310-3
 
 ## Resumo
-O projeto consiste em criar uma API para inserir, selecionar, atualizar e deletar informações de uma determinada carteira de investimentos. As carteiras de investimentos serão criadas com base no sistema de ARCA (Ativos Nacionais, *Real State*,  Caixa e Ativos Internacionais)
-
+O projeto consiste em criar uma API para selecionar pessoas da base de dados
 ## Desenvolvimento
 ### Tecnologias
 
-- mySQL DB para armazenamento das informações
+- MySQL DB para armazenamento das informações
 - Clojure como linguagem principal
 
 ### Informações lógicas do projeto
 Serão consideradas essas as entidades principais.
 
 **Pessoas:**
+<br>
 - id: int
 - FirstName: string
 - LastName: string
-- international: string
 - Address: string
 - City: string
+</br>
+## Projeto
 
-## Rodando o Projeto
-Precisa de um MySQL e do lein instalados.
+o projeto consiste em criar um Mysql que pode ser alterado por codigo, na pasta clojure_mysql no arquivo core.clj
+onde esta todo a base do MySQL e do Pedestal.
 
-MYSQL:
+O projeto roda o banco de dados no localhost na porta 3306 com o database "ECM969ProgramacaoFuncional" e possui um acesso de user e password por padrao "root" "45Mlui26Bwtn" respectivamente mas precisa ser alterado para as configurações do seu banco de dados.
+
+## MYSQL
+Precisa de um MySQL, lein e pedestal instalados.
 
 CREATE DATABASE ECM969ProgramacaoFuncional;
 
@@ -48,15 +52,14 @@ VALUES ('Exemplo', 'Exemplo', 'Exemplo ','Exemplo')
 
 SELECT * FROM persons;
 
+## lein API's 
+
 lein: 
 
 lein run
 
 cmd ou qualquer ferramenta de api: 
 
-curl -i http://localhost:9980/queryAll
-curl -i http://localhost:9980/ola
+- curl -i http://localhost:9980/queryAll
+- curl -i http://localhost:9980/ola
 
-## Testes com o projeto
-
-Dentro do projeto, no caminho `./test/rest/` existem diversos arquivos .rest que foram criados com o intuito de testar as chamadas HTTP. 
